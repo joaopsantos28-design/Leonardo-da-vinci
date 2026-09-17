@@ -1,0 +1,541 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Rest — Galeria Leonardo da Vinci",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://leonardo-da-vinci.test",
+            "description": "Servidor de desenvolvimento local (Herd)"
+        }
+    ],
+    "paths": {
+        "/obras": {
+            "get": {
+                "tags": [
+                    "Obras"
+                ],
+                "summary": "Lista todas as obras registradas",
+                "operationId": "9b6230a4da1af560957b6799aae13c66",
+                "responses": {
+                    "200": {
+                        "description": "Requisição concluída com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Obras"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro ao listar obras"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Obras"
+                ],
+                "summary": "Registro de obra",
+                "operationId": "12f13d54c9951027045dd96f0771422b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ObraInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Obra criada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Obras"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao criar obra"
+                    },
+                    "400": {
+                        "description": "Erro ao cadastrar obra"
+                    },
+                    "500": {
+                        "description": "Erro interno do servidor"
+                    }
+                }
+            }
+        },
+        "/obras/{id}": {
+            "get": {
+                "tags": [
+                    "Obras"
+                ],
+                "summary": "Obtendo informações de uma obra",
+                "operationId": "0ff65a9bb9042c999bb4ff5abfcdc439",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Requisição para leitura de obra realizada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Obras"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Obra não encontrada"
+                    },
+                    "500": {
+                        "description": "Erro interno do servidor"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Obras"
+                ],
+                "summary": "Exclusão de obra",
+                "operationId": "12625434c78e43a63170be9d9c21e8d9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Obra excluída com sucesso"
+                    },
+                    "404": {
+                        "description": "Obra não encontrada"
+                    },
+                    "500": {
+                        "description": "Erro interno do servidor"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Obras"
+                ],
+                "summary": "Atualizar obra",
+                "operationId": "a0d96541400603418ee272f8a1767d24",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ObraUpdateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Obra atualizada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Obras"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Obra não encontrada"
+                    },
+                    "422": {
+                        "description": "Tentativa de atualização com dados inválidos"
+                    },
+                    "500": {
+                        "description": "Erro interno do servidor"
+                    }
+                }
+            }
+        },
+        "/usuarios": {
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Lista todos os usuários registrados",
+                "operationId": "4bc98331685a9a939d2f443fbbe96955",
+                "responses": {
+                    "200": {
+                        "description": "Requisição concluída com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Usuarios"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Erro ao listar usuários"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Registro de usuário",
+                "operationId": "9a1929338fc7c21ed466905a7d30bfe6",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UsuarioInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Usuário criado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Usuarios"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Erro ao criar senha"
+                    },
+                    "409": {
+                        "description": "Usuário com e-mail existente"
+                    },
+                    "400": {
+                        "description": "Erro ao cadastrar usuário"
+                    },
+                    "500": {
+                        "description": "Erro interno do servidor"
+                    }
+                }
+            }
+        },
+        "/usuarios/{id}": {
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Obtendo informações de um usuário",
+                "operationId": "a80dbe86648c67fbad70025a160359a9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Requisição para leitura de usuário realizada com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Usuarios"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuário não encontrado"
+                    },
+                    "500": {
+                        "description": "Erro interno do servidor"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Exclusão de usuário",
+                "operationId": "6b14a333bb2efea561f8d5ed6bdec97b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Usuário excluído com sucesso"
+                    },
+                    "404": {
+                        "description": "Usuário não encontrado"
+                    },
+                    "500": {
+                        "description": "Erro interno do servidor"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "summary": "Atualizar usuário",
+                "operationId": "0c349890672980ccd9e58f7450eb07fd",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UsuarioUpdateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuário atualizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Usuarios"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Usuário não encontrado"
+                    },
+                    "422": {
+                        "description": "Tentativa de atualização com dados inválidos"
+                    },
+                    "409": {
+                        "description": "Usuário com endereço de e-mail existente"
+                    },
+                    "500": {
+                        "description": "Erro interno do servidor"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Usuarios": {
+                "properties": {
+                    "id_usuario": {
+                        "type": "integer"
+                    },
+                    "nome": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "senha": {
+                        "type": "string",
+                        "format": "password"
+                    },
+                    "data_cadastro": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "type": "object"
+            },
+            "UsuarioInput": {
+                "required": [
+                    "nome",
+                    "email",
+                    "senha"
+                ],
+                "properties": {
+                    "nome": {
+                        "type": "string",
+                        "example": "Leonardo da Silva"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "leonardo@email.com"
+                    },
+                    "senha": {
+                        "type": "string",
+                        "minLength": 6,
+                        "example": "senha123"
+                    }
+                },
+                "type": "object"
+            },
+            "UsuarioUpdateInput": {
+                "properties": {
+                    "nome": {
+                        "type": "string",
+                        "example": "Leonardo da Silva"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "leonardo@email.com"
+                    }
+                },
+                "type": "object"
+            },
+            "Obras": {
+                "properties": {
+                    "id_obra": {
+                        "type": "integer"
+                    },
+                    "nome": {
+                        "type": "string"
+                    },
+                    "ano": {
+                        "type": "string"
+                    },
+                    "tecnica": {
+                        "type": "string"
+                    },
+                    "localizacao": {
+                        "type": "string"
+                    },
+                    "imagem": {
+                        "type": "string"
+                    },
+                    "descricao": {
+                        "type": "string"
+                    },
+                    "id_usuario": {
+                        "type": "integer"
+                    },
+                    "data_cadastro": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ObraInput": {
+                "required": [
+                    "nome",
+                    "ano",
+                    "tecnica",
+                    "localizacao",
+                    "imagem",
+                    "descricao"
+                ],
+                "properties": {
+                    "nome": {
+                        "type": "string",
+                        "example": "Mona Lisa"
+                    },
+                    "ano": {
+                        "type": "string",
+                        "example": "1503–1519"
+                    },
+                    "tecnica": {
+                        "type": "string",
+                        "example": "Óleo sobre madeira"
+                    },
+                    "localizacao": {
+                        "type": "string",
+                        "example": "Museu do Louvre, Paris"
+                    },
+                    "imagem": {
+                        "type": "string",
+                        "example": "https://exemplo.com/monalisa.jpg"
+                    },
+                    "descricao": {
+                        "type": "string",
+                        "example": "Retrato realizado por Leonardo da Vinci."
+                    }
+                },
+                "type": "object"
+            },
+            "ObraUpdateInput": {
+                "properties": {
+                    "nome": {
+                        "type": "string",
+                        "example": "Mona Lisa"
+                    },
+                    "ano": {
+                        "type": "string",
+                        "example": "1503–1519"
+                    },
+                    "tecnica": {
+                        "type": "string",
+                        "example": "Óleo sobre madeira"
+                    },
+                    "localizacao": {
+                        "type": "string",
+                        "example": "Museu do Louvre, Paris"
+                    },
+                    "imagem": {
+                        "type": "string",
+                        "example": "https://exemplo.com/monalisa.jpg"
+                    },
+                    "descricao": {
+                        "type": "string",
+                        "example": "Retrato realizado por Leonardo da Vinci."
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Obras",
+            "description": "Obras"
+        },
+        {
+            "name": "Usuarios",
+            "description": "Usuarios"
+        }
+    ]
+}

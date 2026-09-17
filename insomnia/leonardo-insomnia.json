@@ -1,0 +1,142 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-09-17T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v8.0.0",
+  "resources": [
+    {
+      "_id": "wrk_leonardo",
+      "_type": "workspace",
+      "parentId": null,
+      "name": "Galeria Leonardo API",
+      "description": "Usuarios e obras do projeto Leonardo da Vinci"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "parentId": "wrk_leonardo",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://galeria-leonardo.test"
+      }
+    },
+    {
+      "_id": "fld_usuarios",
+      "_type": "request_group",
+      "parentId": "wrk_leonardo",
+      "name": "Usuarios"
+    },
+    {
+      "_id": "req_usuarios_list",
+      "_type": "request",
+      "parentId": "fld_usuarios",
+      "name": "Listar usuarios",
+      "method": "GET",
+      "url": "{{ _.base_url }}/usuarios",
+      "headers": []
+    },
+    {
+      "_id": "req_usuarios_show",
+      "_type": "request",
+      "parentId": "fld_usuarios",
+      "name": "Detalhar usuario",
+      "method": "GET",
+      "url": "{{ _.base_url }}/usuarios/1",
+      "headers": []
+    },
+    {
+      "_id": "req_usuarios_create",
+      "_type": "request",
+      "parentId": "fld_usuarios",
+      "name": "Criar usuario",
+      "method": "POST",
+      "url": "{{ _.base_url }}/usuarios",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Leonardo da Silva\",\n  \"email\": \"leonardo@email.com\",\n  \"senha\": \"senha123\"\n}"
+      },
+      "headers": [{ "name": "Content-Type", "value": "application/json" }]
+    },
+    {
+      "_id": "req_usuarios_update",
+      "_type": "request",
+      "parentId": "fld_usuarios",
+      "name": "Atualizar usuario",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/usuarios/1",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Novo nome\"\n}"
+      },
+      "headers": [{ "name": "Content-Type", "value": "application/json" }]
+    },
+    {
+      "_id": "req_usuarios_delete",
+      "_type": "request",
+      "parentId": "fld_usuarios",
+      "name": "Excluir usuario",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/usuarios/1",
+      "headers": []
+    },
+    {
+      "_id": "fld_obras",
+      "_type": "request_group",
+      "parentId": "wrk_leonardo",
+      "name": "Obras"
+    },
+    {
+      "_id": "req_obras_list",
+      "_type": "request",
+      "parentId": "fld_obras",
+      "name": "Listar obras",
+      "method": "GET",
+      "url": "{{ _.base_url }}/obras",
+      "headers": []
+    },
+    {
+      "_id": "req_obras_show",
+      "_type": "request",
+      "parentId": "fld_obras",
+      "name": "Detalhar obra",
+      "method": "GET",
+      "url": "{{ _.base_url }}/obras/1",
+      "headers": []
+    },
+    {
+      "_id": "req_obras_create",
+      "_type": "request",
+      "parentId": "fld_obras",
+      "name": "Criar obra",
+      "method": "POST",
+      "url": "{{ _.base_url }}/obras",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Mona Lisa\",\n  \"ano\": \"1503-1519\",\n  \"tecnica\": \"Óleo sobre madeira\",\n  \"localizacao\": \"Museu do Louvre, Paris\",\n  \"imagem\": \"https://exemplo.com/monalisa.jpg\",\n  \"descricao\": \"Retrato realizado por Leonardo da Vinci.\"\n}"
+      },
+      "headers": [{ "name": "Content-Type", "value": "application/json" }]
+    },
+    {
+      "_id": "req_obras_update",
+      "_type": "request",
+      "parentId": "fld_obras",
+      "name": "Atualizar obra",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/obras/1",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"descricao\": \"Nova descricao da obra.\"\n}"
+      },
+      "headers": [{ "name": "Content-Type", "value": "application/json" }]
+    },
+    {
+      "_id": "req_obras_delete",
+      "_type": "request",
+      "parentId": "fld_obras",
+      "name": "Excluir obra",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/obras/1",
+      "headers": []
+    }
+  ]
+}
